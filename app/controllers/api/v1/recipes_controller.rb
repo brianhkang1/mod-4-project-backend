@@ -1,4 +1,5 @@
 class Api::V1::RecipesController < ApplicationController
+  skip_before_action :authorized, only: [:index, :show]
   before_action :find_recipe, only: [:show, :update]
 
   def index
@@ -27,7 +28,7 @@ class Api::V1::RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:time, :ingredients, :instructions, :user_id)
+    params.require(:recipe).permit(:time, :summary, :ingredients, :instructions, :user_id)
   end
 
   def find_recipe
