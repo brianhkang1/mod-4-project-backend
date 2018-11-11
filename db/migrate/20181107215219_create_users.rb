@@ -5,7 +5,6 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :password_digest
       t.string :fav_food
       t.string :worst_food
-      t.string :avatar
 
       t.timestamps
     end

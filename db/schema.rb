@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2018_11_07_220608) do
   create_table "recipes", force: :cascade do |t|
     t.string "name"
     t.string "time"
+    t.integer "cost"
+    t.string "image"
     t.text "summary"
     t.text "ingredients"
     t.text "instructions"
@@ -38,7 +40,6 @@ ActiveRecord::Schema.define(version: 2018_11_07_220608) do
     t.string "password_digest"
     t.string "fav_food"
     t.string "worst_food"
-    t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
