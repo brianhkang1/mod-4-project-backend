@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: [:index, :update, :show, :create]
       resources :recipes, only: [:index, :update, :show, :create]
-      resources :saved_recipes, only: [:index, :show]
+      resources :saved_recipes, only: [:index, :create]
       post '/login', to: "auth#create"
       get '/profile', to: 'users#profile'
     end
