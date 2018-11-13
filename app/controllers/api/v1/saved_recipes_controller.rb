@@ -11,8 +11,9 @@ class Api::V1::SavedRecipesController < ApplicationController
   end
 
   def create
-    if SavedRecipe.create(saved_recipe_params).valid?
-      render json: SavedRecipe.create(saved_recipe_params)
+    @saved_recipe = SavedRecipe.create(saved_recipe_params)
+    if @saved_recipe.persisted?
+      render json: @saved_recipe
     else
       render json: {error: "failed to saved recipe"}, status: :not_acceptable
     end
